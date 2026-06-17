@@ -2,9 +2,49 @@
 	"index": {
 		"greeting": "Hi！我是"
 	},
+	"platforms": {
+		"bilibili": "哔哩哔哩",
+		"gitee": "Gitee",
+		"github": "GitHub",
+		"netease_music": "网易云音乐",
+		"official_website": "官网",
+		"qq_music": "QQ 音乐",
+		"youtube": "YouTube"
+	},
 	"profile": {
 		"name": "汪楚钧",
-		"official_name": "汪楚钧"
+		"official_name": "汪楚钧",
+		"roles": {
+			"backend_engineer": "后端工程师",
+			"backend_engineering_lead": "后端工程负责人",
+			"composer": "作曲",
+			"frontend_engineer": "前端工程师",
+			"frontend_engineering_lead": "前端工程负责人",
+			"independent_project": "独立项目"
+		}
+	},
+	"projects": {
+		"basic_spam_classifier": {
+			"descriptions": "基于独立性检验与朴素贝叶斯算法的极简垃圾短信识别程序（数学教材实践项目）。",
+			"title": "简易垃圾短信识别器"
+		},
+		"jiu_tian": {
+			"descriptions": "人大附中高中 2026 届 9 班班歌。由班长单提宇主要作曲、编曲，我参与部分作曲与和声编配。",
+			"title": "九天"
+		},
+		"jiu_tian_rhapsody": {
+			"descriptions": "受到《九天》启发而创作的一部管弦乐狂想曲。这是我发布的第一部作品，创作于高一。",
+			"title": "九天序曲"
+		},
+		"r3d": {
+			"descriptions": "主要基于 Unity 的人大附中数字校园项目。",
+			"title": "幻立红白"
+		},
+		"ran_wan": {
+			"descriptions": "人大附中第 20 届电影节的参赛作品。本片是当届唯一一部大量采用原创配乐并深度契合剧情的影片，最终斩获最佳原创音乐奖。",
+			"title": "燃晚"
+		},
+		"title": "我的项目"
 	},
 	"title": "汪楚钧的主页"
 }

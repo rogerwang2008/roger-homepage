@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
+	import Project from './Project.svelte';
 
 	const bgImage = '/three-plush-toys.webp';
 	let imageAspectRatio = $state('3693 / 3072');
@@ -54,6 +55,61 @@
 		{/if}
 	</div>
 </div>
+
+<section class="w-full max-w-7xl mx-auto px-6 py-12">
+	<h2 class="text-3xl font-bold mb-6">{$_('projects.title')}</h2>
+	<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+		<Project
+			projectName="r3d"
+			roles={['backend_engineering_lead', 'frontend_engineering_lead']}
+			bgImage="/projects/r3d-bg.webp"
+			typeIcon="material-symbols:code"
+			platforms={[
+				{platform: 'official_website', url: 'https://r3d.x-way.work'},
+				{platform: 'github', url: 'https://github.com/RDFZ3D'},
+				{platform: 'gitee', url: 'https://gitee.com/RDFZ3D'},
+			]}
+		/>
+		<Project
+			projectName="basic_spam_classifier"
+			roles={['independent_project']}
+			typeIcon="material-symbols:code"
+			platforms={[
+				{platform: 'github', url: 'https://github.com/rogerwang2008/bayes-spam-filter'},
+			]}
+		/>
+		<Project
+			projectName="ran_wan"
+			roles={['composer']}
+			bgImage="/projects/ran_wan_bg.jpg"
+			typeIcon="material-symbols:music-note-2"
+			platforms={[
+				{platform: 'netease_music', url: 'https://music.163.com/#/album?id=272340040'},
+				{platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/00119Qfy23sDyw'},
+			]}
+		/>
+		<Project
+			projectName="jiu_tian"
+			roles={['composer']}
+			bgImage="/projects/jiu_tian_bg.webp"
+			typeIcon="material-symbols:music-note-2"
+			platforms={[
+				{platform: 'netease_music', url: 'https://music.163.com/#/album?id=260108878'},
+				{platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/002Fl7l82KtE1O'},
+			]}
+		/>
+		<Project
+			projectName="jiu_tian_rhapsody"
+			roles={['independent_project']}
+			bgImage="/projects/jiu_tian_rhapsody_bg.webp"
+			typeIcon="material-symbols:music-note-2"
+			platforms={[
+				{platform: 'netease_music', url: 'https://music.163.com/song?id=2705681311'},
+				{platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/songDetail/001WcVUs4LeXSd'},
+			]}
+		/>
+	</div>
+</section>
 
 <style>
 	.title-hero {

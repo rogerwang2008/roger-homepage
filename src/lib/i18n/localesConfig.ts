@@ -1,6 +1,6 @@
 export const defaultLocale = 'en';
 
-export const locales = ['zh-CN', 'en'];
+export const locales = ['en', 'zh-CN', 'zh-HK'];
 
 export const getClosestLocale = (locale: string) => {
 	if (locales.includes(locale)) {

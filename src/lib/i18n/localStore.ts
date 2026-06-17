@@ -1,15 +1,17 @@
 import { browser } from '$app/environment';
-import { get } from 'svelte/store';
+import { get, writable } from 'svelte/store';
 import { locale } from 'svelte-i18n';
-import { type Persisted, persisted } from 'svelte-persisted-store';
+import { readCookie, writeCookie } from '$lib/utils';
 import { defaultLocale, getClosestLocale } from './localesConfig.ts';
 
-export const storedLocale: Persisted<string> = persisted(
-	'locale',
-	browser ? getClosestLocale(window.navigator.language) : get(locale) || defaultLocale
-);
+const COOKIE_NAME = 'locale';
+
+const initialValue =
+	readCookie(COOKIE_NAME) || (browser ? getClosestLocale(window.navigator.language) : get(locale) || defaultLocale);
+
+export const storedLocale = writable<string>(initialValue);
 
 storedLocale.subscribe((lang) => {
-	console.log('CURRLOCALE', lang);
+	writeCookie(COOKIE_NAME, lang);
 	locale.set(lang);
 });

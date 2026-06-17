@@ -1,0 +1,50 @@
+{
+	"index": {
+		"greeting": "Hi！我是"
+	},
+	"platforms": {
+		"bilibili": "BiliBili",
+		"gitee": "Gitee",
+		"github": "GitHub",
+		"netease_music": "網易雲音樂",
+		"official_website": "官網",
+		"qq_music": "QQ 音樂",
+		"youtube": "YouTube"
+	},
+	"profile": {
+		"name": "汪楚鈞",
+		"official_name": "汪楚钧",
+		"roles": {
+			"backend_engineer": "後端工程師",
+			"backend_engineering_lead": "後端工程負責人",
+			"composer": "作曲",
+			"frontend_engineer": "前端工程師",
+			"frontend_engineering_lead": "前端工程負責人",
+			"independent_project": "獨立項目"
+		}
+	},
+	"projects": {
+		"basic_spam_classifier": {
+			"descriptions": "基於獨立性檢驗與樸素貝葉斯演算法的極簡垃圾短訊識別程式（數學教材實踐項目）。",
+			"title": "簡易垃圾短訊識別器"
+		},
+		"jiu_tian": {
+			"descriptions": "<dfn><abbr title=\"中國人民大學附屬中學\">人大附中</abbr></dfn>高中 2026 屆 9 班班歌。歌曲由班長單提宇主要負責作曲同編曲，我參與部分作曲以及和聲編配。",
+			"title": "九天"
+		},
+		"jiu_tian_rhapsody": {
+			"descriptions": "受《九天》啟發而創作的管弦樂狂想曲。這是我發布的第一部作品，創作於高一時期。",
+			"title": "九天序曲"
+		},
+		"r3d": {
+			"descriptions": "主要基於 Unity 的<dfn><abbr title=\"中國人民大學附屬中學\">人大附中</abbr></dfn>數字校園項目。",
+			"title": "幻立紅白"
+		},
+		"ran_wan": {
+			"descriptions": "人大附中第 20 屆電影節的參賽作品。本片是當屆唯一一部大量採用原創配樂並深度契合劇情的電影，最終勇奪最佳原創音樂獎。",
+			"title": "燃晚"
+		},
+		"title": "我的項目"
+	},
+	"title": "汪楚鈞的 Homepage"
+}

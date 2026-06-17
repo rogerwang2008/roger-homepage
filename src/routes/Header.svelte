@@ -1,13 +1,11 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
-	import { type Persisted, persisted } from 'svelte-persisted-store';
 	import { resolve } from '$app/paths';
 	import Icon from '@iconify/svelte';
-	import { onMount } from 'svelte';
 	import { getLanguageName, locales } from '$lib/i18n';
 	import { storedLocale } from '$lib/i18n/localStore';
+	import { storedTheme } from '$lib/theme';
 
-	const storedTheme: Persisted<'wcj-light' | 'wcj-dark' | ''> = persisted('theme', '');
 	const switchTheme = () => {
 		if ($storedTheme === 'wcj-light') {
 			$storedTheme = 'wcj-dark';
@@ -17,12 +15,6 @@
 			$storedTheme = 'wcj-light';
 		}
 	};
-
-	onMount(() => {
-		storedTheme.subscribe((theme) => {
-			document.body.setAttribute('data-theme', theme);
-		});
-	});
 </script>
 
 <div class="navbar sticky top-0 z-1000 bg-base-100">
