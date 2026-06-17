@@ -1,16 +1,31 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
+	import { type Persisted, persisted } from 'svelte-persisted-store';
 	import { resolve } from '$app/paths';
 	import Icon from '@iconify/svelte';
 	import { getLanguageName, locales } from '$lib/i18n';
-	import { currentLocale } from '$lib/i18n/localStore';
+	import { storedLocale } from '$lib/i18n/localStore';
+	import { onMount } from 'svelte';
 
-	function selectLanguage(lang: string) {
-		currentLocale.set(lang);
-	}
+	const storedTheme: Persisted<'light' | 'dark' | ''> = persisted('theme', '');
+	const switchTheme = () => {
+		if ($storedTheme === 'light') {
+			$storedTheme = 'dark';
+		} else if ($storedTheme === 'dark') {
+			$storedTheme = '';
+		} else {
+			$storedTheme = 'light';
+		}
+	};
+
+	onMount(() => {
+		storedTheme.subscribe((theme) => {
+			document.body.setAttribute('data-theme', theme);
+		});
+	});
 </script>
 
-<div class="navbar">
+<div class="navbar sticky top-0 z-1000 bg-base-100">
 	<div class="flex-1">
 		<a class="btn btn-ghost text-xl" href={resolve('/')}>{$_('profile.name')}</a>
 	</div>
@@ -20,7 +35,7 @@
 			popoverTarget="language-menu"
 			style="anchor-name: --language-button"
 		>
-			<Icon icon="mdi:translate" width="20" height="20" />
+			<Icon icon="material-symbols:translate" width="24" height="24" />
 		</button>
 		<ul
 			id="language-menu"
@@ -33,12 +48,24 @@
 					<button
 						class="flex"
 						class:font-bold={$locale === lang}
-						onclick={() => selectLanguage(lang)}
+						onclick={() => storedLocale.set(lang)}
 					>
 						{getLanguageName(lang)}
 					</button>
 				</li>
 			{/each}
 		</ul>
+		<button class="btn btn-ghost" onclick={switchTheme}>
+			<Icon
+				icon="material-symbols:{$storedTheme ? `${$storedTheme}-mode` : 'light-mode-auto'}"
+				width="24"
+				height="24"
+			/>
+			<span aria-hidden="true" style="display:none">
+				<Icon icon="material-symbols:light-mode" width="24" height="24" />
+				<Icon icon="material-symbols:dark-mode" width="24" height="24" />
+				<Icon icon="material-symbols:light-mode-auto" width="24" height="24" />
+			</span>
+		</button>
 	</div>
 </div>

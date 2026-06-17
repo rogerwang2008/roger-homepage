@@ -1,6 +1,6 @@
 import { init, register } from 'svelte-i18n';
 import { get } from 'svelte/store';
-import { currentLocale } from './localStore';
+import { storedLocale } from './localStore';
 import { defaultLocale, getClosestLocale, getLanguageName, locales } from './localesConfig.ts';
 
 // Re-export for convenience
@@ -10,5 +10,5 @@ locales.forEach((locale) => register(locale, () => import(`./locales/${locale}.j
 
 init({
 	fallbackLocale: defaultLocale,
-	initialLocale: get(currentLocale)
+	initialLocale: get(storedLocale)
 });
