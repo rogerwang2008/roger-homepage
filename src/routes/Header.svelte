@@ -3,18 +3,18 @@
 	import { type Persisted, persisted } from 'svelte-persisted-store';
 	import { resolve } from '$app/paths';
 	import Icon from '@iconify/svelte';
+	import { onMount } from 'svelte';
 	import { getLanguageName, locales } from '$lib/i18n';
 	import { storedLocale } from '$lib/i18n/localStore';
-	import { onMount } from 'svelte';
 
-	const storedTheme: Persisted<'light' | 'dark' | ''> = persisted('theme', '');
+	const storedTheme: Persisted<'wcj-light' | 'wcj-dark' | ''> = persisted('theme', '');
 	const switchTheme = () => {
-		if ($storedTheme === 'light') {
-			$storedTheme = 'dark';
-		} else if ($storedTheme === 'dark') {
+		if ($storedTheme === 'wcj-light') {
+			$storedTheme = 'wcj-dark';
+		} else if ($storedTheme === 'wcj-dark') {
 			$storedTheme = '';
 		} else {
-			$storedTheme = 'light';
+			$storedTheme = 'wcj-light';
 		}
 	};
 
@@ -57,7 +57,7 @@
 		</ul>
 		<button class="btn btn-ghost" onclick={switchTheme}>
 			<Icon
-				icon="material-symbols:{$storedTheme ? `${$storedTheme}-mode` : 'light-mode-auto'}"
+				icon="material-symbols:{$storedTheme ? `${$storedTheme.slice(4)}-mode` : 'light-mode-auto'}"
 				width="24"
 				height="24"
 			/>

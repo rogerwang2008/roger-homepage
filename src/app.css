@@ -1,10 +1,10 @@
 @import "tailwindcss";
-@plugin "daisyui";
 @plugin '@tailwindcss/typography';
+@plugin "daisyui";
 
 /*noinspection DuplicatedCode*/
 @plugin "daisyui/theme" {
-  name: "light";
+  name: "wcj-light";
   default: true;
   prefersdark: false;
   color-scheme: "light";
@@ -38,11 +38,10 @@
   --noise: 0;
 }
 
-
 /*noinspection DuplicatedCode*/
 @plugin "daisyui/theme" {
-  name: "dark";
-  default: true;
+  name: "wcj-dark";
+  default: false;
   prefersdark: true;
   color-scheme: "dark";
   --color-base-100: oklch(26% 0.007 34.298);
@@ -74,3 +73,4 @@
   --depth: 0;
   --noise: 0;
 }
+
