@@ -42,7 +42,7 @@
 				alt={resolvedTooltip}
 				width={size * 0.8}
 				height={size * 0.8}
-				style="object-fit: contain"
+				class="select-none object-certain"
 			/>
 		{:else}
 			<Icon icon={icon.iconName} width={size * 0.8} height={size * 0.8} />

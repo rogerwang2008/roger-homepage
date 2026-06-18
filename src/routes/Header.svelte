@@ -1,10 +1,21 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
 	import { resolve } from '$app/paths';
-	import Icon from '@iconify/svelte';
+	import TranslateIcon from '@iconify-svelte/material-symbols/translate';
+	import LightModeIcon from '@iconify-svelte/material-symbols/light-mode';
+	import DarkModeIcon from '@iconify-svelte/material-symbols/dark-mode';
+	import LightModeAutoIcon from '@iconify-svelte/material-symbols/light-mode-auto';
 	import { getLanguageName, locales } from '$lib/i18n';
 	import { storedLocale } from '$lib/i18n/localStore';
 	import { storedTheme } from '$lib/theme';
+
+	const ThemeIconComponent = $derived(
+		$storedTheme === 'wcj-light'
+			? LightModeIcon
+			: $storedTheme === 'wcj-dark'
+				? DarkModeIcon
+				: LightModeAutoIcon
+	);
 
 	const switchTheme = () => {
 		if ($storedTheme === 'wcj-light') {
@@ -17,7 +28,7 @@
 	};
 </script>
 
-<div class="navbar sticky top-0 z-1000 bg-base-100">
+<div class="navbar sticky top-0 z-1000 bg-base-200">
 	<div class="flex-1">
 		<a class="btn btn-ghost text-xl" href={resolve('/')}>{$_('profile.name')}</a>
 	</div>
@@ -27,7 +38,7 @@
 			popoverTarget="language-menu"
 			style="anchor-name: --language-button"
 		>
-			<Icon icon="material-symbols:translate" width="24" height="24" />
+			<TranslateIcon width="24" height="24" />
 		</button>
 		<ul
 			id="language-menu"
@@ -48,16 +59,13 @@
 			{/each}
 		</ul>
 		<button class="btn btn-ghost" onclick={switchTheme}>
-			<Icon
-				icon="material-symbols:{$storedTheme ? `${$storedTheme.slice(4)}-mode` : 'light-mode-auto'}"
-				width="24"
-				height="24"
-			/>
-			<span aria-hidden="true" style="display:none">
-				<Icon icon="material-symbols:light-mode" width="24" height="24" />
-				<Icon icon="material-symbols:dark-mode" width="24" height="24" />
-				<Icon icon="material-symbols:light-mode-auto" width="24" height="24" />
-			</span>
+			<!--{#if $storedTheme === 'wcj-light'}-->
+			<ThemeIconComponent width="24" height="24" />
+			<!--{:else if $storedTheme === 'wcj-dark'}-->
+			<!--	<DarkModeIcon width="24" height="24" />-->
+			<!--{:else}-->
+			<!--	<LightModeAutoIcon width="24" height="24" />-->
+			<!--{/if}-->
 		</button>
 	</div>
 </div>

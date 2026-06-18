@@ -10,6 +10,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const theme = event.cookies.get('theme') || '';
 
 	const lang = cookieLang || headerLang;
+	console.log(cookieLang, headerLang);
 	if (lang) {
 		locale.set(getClosestLocale(lang));
 	}

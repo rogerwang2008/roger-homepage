@@ -41,7 +41,14 @@
 		{#if roles && roles.length > 0}
 			<div class="card-actions flex-wrap gap-2">
 				{#each roles as role (role)}
-					<div class="badge badge-outline" class:opacity-60={role === 'independent_project'}>
+					<div
+						class="badge"
+						class:badge-outline={role !== 'independent_project'}
+						class:bg-base-content={role === 'independent_project'}
+						class:text-base-100={role === 'independent_project'}
+						class:opacity-60={role === 'independent_project'}
+						class:font-bold={role === 'independent_project'}
+					>
 						{$_(`profile.roles.${role}`)}
 					</div>
 				{/each}

@@ -37,12 +37,12 @@
 </script>
 
 <svelte:head>
-	<title>{$_('title')}</title>
+	<title>{$_('index.title')}</title>
 	<meta name="description" content="Roger Wang's Homepage" />
 </svelte:head>
 
 <div
-	class="title-hero hero py-30"
+	class="title-hero hero py-30 bg-base-200"
 	class:overflow={imageOverflows}
 	bind:this={heroEl}
 	style="--img-ratio: {imageAspectRatio}; --bg-image: url({bgImage})"
@@ -56,8 +56,8 @@
 	</div>
 </div>
 
-<section class="w-full max-w-7xl mx-auto px-6 py-12">
-	<h2 class="text-3xl font-bold mb-6">{$_('projects.title')}</h2>
+<section class="w-full max-w-7xl mx-auto px-6 py-6">
+	<h2 class="text-4xl font-bold my-9">{$_('projects.title')}</h2>
 	<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 		<Project
 			projectName="r3d"
@@ -68,6 +68,16 @@
 				{platform: 'official_website', url: 'https://r3d.x-way.work'},
 				{platform: 'github', url: 'https://github.com/RDFZ3D'},
 				{platform: 'gitee', url: 'https://gitee.com/RDFZ3D'},
+			]}
+		/>
+		<Project
+			projectName="homepage"
+			roles={['independent_project']}
+			bgImage="/three-plush-toys.webp"
+			typeIcon="material-symbols:code"
+			platforms={[
+				{platform: 'official_website', url: '/'},
+				{platform: 'github', url: 'https://github.com/rogerwang2008/roger-homepage'},
 			]}
 		/>
 		<Project
@@ -136,7 +146,7 @@
 		right: 0;
 		height: 100%;
 		aspect-ratio: var(--img-ratio, 3693 / 3072);
-		background: linear-gradient(to right, var(--color-base-100), transparent);
+		background: linear-gradient(to right, var(--color-base-200), transparent);
 		pointer-events: none;
 	}
 

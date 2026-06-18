@@ -1,6 +1,7 @@
 {
 	"index": {
-		"greeting": "Hi！我是"
+		"greeting": "Hi！我是",
+		"title": "汪楚鈞的 Homepage"
 	},
 	"platforms": {
 		"bilibili": "BiliBili",
@@ -28,6 +29,10 @@
 			"descriptions": "基於獨立性檢驗與樸素貝葉斯演算法的極簡垃圾短訊識別程式（數學教材實踐項目）。",
 			"title": "簡易垃圾短訊識別器"
 		},
+		"homepage": {
+			"descriptions": "就是這個頁面 😄",
+			"title": "汪楚鈞的主頁"
+		},
 		"jiu_tian": {
 			"descriptions": "<dfn><abbr title=\"中國人民大學附屬中學\">人大附中</abbr></dfn>高中 2026 屆 9 班班歌。歌曲由班長單提宇主要負責作曲同編曲，我參與部分作曲以及和聲編配。",
 			"title": "九天"
@@ -44,7 +49,6 @@
 			"descriptions": "人大附中第 20 屆電影節的參賽作品。本片是當屆唯一一部大量採用原創配樂並深度契合劇情的電影，最終勇奪最佳原創音樂獎。",
 			"title": "燃晚"
 		},
-		"title": "我的項目"
-	},
-	"title": "汪楚鈞的 Homepage"
+		"title": "我的作品"
+	}
 }
