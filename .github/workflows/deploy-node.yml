@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Development'
+      name: 'Deployment'
 
     steps:
     - name: Download artifact from build job
@@ -73,11 +73,14 @@ jobs:
         # check this thread to understand why its needed:
         # https://stackoverflow.com/a/70447517
       run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ secrets.WCJ_SERVER_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        install -m 600 -D /dev/null ~/.ssh/id_ed25519
+        echo "${{ secrets.WCJ_SERVER_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
         ssh-keyscan -H ${{ secrets.WCJ_SERVER_HOST }} > ~/.ssh/known_hosts
 
     - name: Deploy
       run: |
         scp -r ./build/ ubuntu@${{ secrets.WCJ_SERVER_HOST }}:/var/www/nodejs
         ssh ubuntu@${{ secrets.WCJ_SERVER_HOST }} "cd /var/www/nodejs && mv build homepage && pm2 reload homepage"
+
+    - name: Cleanup
+      run: "rm -rf ~/.ssh"
