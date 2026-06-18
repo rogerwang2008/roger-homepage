@@ -80,7 +80,7 @@ jobs:
     - name: Deploy
       run: |
         scp -r ./build/ ubuntu@${{ secrets.WCJ_SERVER_HOST }}:/var/www/nodejs
-        ssh ubuntu@${{ secrets.WCJ_SERVER_HOST }} "cd /var/www/nodejs && rm -r homepage && mv build homepage && eval \"$(/home/ubuntu/.local/share/fnm/fnm env)\" && pm2 reload homepage"
+        ssh ubuntu@${{ secrets.WCJ_SERVER_HOST }} "cd /var/www/nodejs && rm -r homepage && mv build homepage && eval \"\$(/home/ubuntu/.local/share/fnm/fnm env)\" && pm2 reload homepage"
 
     - name: Cleanup
       run: "rm -rf ~/.ssh"
