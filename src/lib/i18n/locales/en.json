@@ -5,6 +5,7 @@
 	},
 	"platforms": {
 		"bilibili": "BiliBili",
+		"email": "E-mail",
 		"gitee": "Gitee",
 		"github": "GitHub",
 		"netease_music": "NetEase Cloud Music",
@@ -13,6 +14,8 @@
 		"youtube": "YouTube"
 	},
 	"profile": {
+		"brief_introduction": "I’m currently a prospective university student.",
+		"contact_me": "Contact me",
 		"name": "Roger Wang",
 		"official_name": "Wang Chujun",
 		"roles": {
@@ -26,7 +29,7 @@
 	},
 	"projects": {
 		"basic_spam_classifier": {
-			"descriptions": "A minimalist spam SMS detector built on independence tests and the Naive Bayes algorithm, developed as a mathematics textbook practice project.",
+			"descriptions": "A minimalist spam SMS detector built on chi-squared test and the Naive Bayes algorithm. This is a middle-school mathematics textbook practice project.",
 			"title": "Basic Spam Text Classifier"
 		},
 		"homepage": {

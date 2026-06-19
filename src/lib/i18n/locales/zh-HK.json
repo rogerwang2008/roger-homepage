@@ -5,6 +5,7 @@
 	},
 	"platforms": {
 		"bilibili": "BiliBili",
+		"email": "電子郵件",
 		"gitee": "Gitee",
 		"github": "GitHub",
 		"netease_music": "網易雲音樂",
@@ -13,6 +14,8 @@
 		"youtube": "YouTube"
 	},
 	"profile": {
+		"brief_introduction": "我目前是一名準大學生。",
+		"contact_me": "聯繫我",
 		"name": "汪楚鈞",
 		"official_name": "汪楚钧",
 		"roles": {
@@ -26,7 +29,7 @@
 	},
 	"projects": {
 		"basic_spam_classifier": {
-			"descriptions": "基於獨立性檢驗與樸素貝葉斯演算法的極簡垃圾短訊識別程式（數學教材實踐項目）。",
+			"descriptions": "基於獨立性檢驗與樸素貝葉斯演算法的極簡垃圾短訊識別程式（中學數學教材實踐項目）。",
 			"title": "簡易垃圾短訊識別器"
 		},
 		"homepage": {
@@ -34,7 +37,7 @@
 			"title": "汪楚鈞的主頁"
 		},
 		"jiu_tian": {
-			"descriptions": "<dfn><abbr title=\"中國人民大學附屬中學\">人大附中</abbr></dfn>高中 2026 屆 9 班班歌。歌曲由班長單提宇主要負責作曲同編曲，我參與部分作曲以及和聲編配。",
+			"descriptions": "<dfn><abbr title=\"中國人民大學附屬中學\">人大附中</abbr></dfn>高中 2026 屆 9 班班歌。歌曲由班長單提宇主要負責作曲和編曲，我參與部分作曲以及和聲編配。",
 			"title": "九天"
 		},
 		"jiu_tian_rhapsody": {

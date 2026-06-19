@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
 	import Project from './Project.svelte';
+	import Platforms from '$lib/components/platforms.svelte';
 
 	const bgImage = '/three-plush-toys.webp';
 	let imageAspectRatio = $state('3693 / 3072');
@@ -56,8 +57,29 @@
 	</div>
 </div>
 
-<section class="w-full max-w-7xl mx-auto px-6 py-6">
-	<h2 class="text-4xl font-bold my-9">{$_('projects.title')}</h2>
+<section>
+	<p class="text-lg">{$_('profile.brief_introduction')}</p>
+	<h3 class="text-2xl font-bold my-6">{$_('profile.contact_me')}</h3>
+	<div class="flex flex-col gap-2">
+		<div class="card-actions flex-wrap gap-2 items-center">
+			<Platforms platform="email" url="mailto:wangchujun@hiroger.wang" />
+			<a href="mailto:wangchujun@hiroger.wang">wangchujun@hiroger.wang</a>
+		</div>
+		<div class="card-actions flex-wrap gap-2 items-center">
+			<Platforms platform="email" url="mailto:rogerwang2008@outlook.com" />
+			<a href="mailto:rogerwang2008@outlook.com">rogerwang2008@outlook.com</a>
+		</div>
+		<div class="card-actions flex-wrap gap-2 items-center">
+			<Platforms platform="github" url="https://github.com/rogerwang2008" />
+			<Platforms platform="bilibili" url="https://space.bilibili.com/424151176" />
+			<Platforms platform="netease_music" url="https://music.163.com/#/artist?id=98462179" />
+			<Platforms platform="qq_music" url="https://y.qq.com/n/ryqq_v2/singer/00070V2k3RxFfm" />
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2 class="text-4xl font-bold mb-9">{$_('projects.title')}</h2>
 	<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 		<Project
 			projectName="r3d"
@@ -65,9 +87,9 @@
 			bgImage="/projects/r3d-bg.webp"
 			typeIcon="material-symbols:code"
 			platforms={[
-				{platform: 'official_website', url: 'https://r3d.x-way.work'},
-				{platform: 'github', url: 'https://github.com/RDFZ3D'},
-				{platform: 'gitee', url: 'https://gitee.com/RDFZ3D'},
+				{ platform: 'official_website', url: 'https://r3d.x-way.work' },
+				{ platform: 'github', url: 'https://github.com/RDFZ3D' },
+				{ platform: 'gitee', url: 'https://gitee.com/RDFZ3D' }
 			]}
 		/>
 		<Project
@@ -76,8 +98,8 @@
 			bgImage="/three-plush-toys.webp"
 			typeIcon="material-symbols:code"
 			platforms={[
-				{platform: 'official_website', url: '/'},
-				{platform: 'github', url: 'https://github.com/rogerwang2008/roger-homepage'},
+				{ platform: 'official_website', url: '/' },
+				{ platform: 'github', url: 'https://github.com/rogerwang2008/roger-homepage' }
 			]}
 		/>
 		<Project
@@ -85,7 +107,7 @@
 			roles={['independent_project']}
 			typeIcon="material-symbols:code"
 			platforms={[
-				{platform: 'github', url: 'https://github.com/rogerwang2008/bayes-spam-filter'},
+				{ platform: 'github', url: 'https://github.com/rogerwang2008/bayes-spam-filter' }
 			]}
 		/>
 		<Project
@@ -94,8 +116,8 @@
 			bgImage="/projects/ran_wan_bg.jpg"
 			typeIcon="material-symbols:music-note-2"
 			platforms={[
-				{platform: 'netease_music', url: 'https://music.163.com/#/album?id=272340040'},
-				{platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/00119Qfy23sDyw'},
+				{ platform: 'netease_music', url: 'https://music.163.com/#/album?id=272340040' },
+				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/00119Qfy23sDyw' }
 			]}
 		/>
 		<Project
@@ -104,8 +126,8 @@
 			bgImage="/projects/jiu_tian_bg.webp"
 			typeIcon="material-symbols:music-note-2"
 			platforms={[
-				{platform: 'netease_music', url: 'https://music.163.com/#/album?id=260108878'},
-				{platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/002Fl7l82KtE1O'},
+				{ platform: 'netease_music', url: 'https://music.163.com/#/album?id=260108878' },
+				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/002Fl7l82KtE1O' }
 			]}
 		/>
 		<Project
@@ -114,8 +136,8 @@
 			bgImage="/projects/jiu_tian_rhapsody_bg.webp"
 			typeIcon="material-symbols:music-note-2"
 			platforms={[
-				{platform: 'netease_music', url: 'https://music.163.com/song?id=2705681311'},
-				{platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/songDetail/001WcVUs4LeXSd'},
+				{ platform: 'netease_music', url: 'https://music.163.com/song?id=2705681311' },
+				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/songDetail/001WcVUs4LeXSd' }
 			]}
 		/>
 	</div>
@@ -125,43 +147,47 @@
 	.title-hero {
 		position: relative;
 		overflow: hidden;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: var(--bg-image) no-repeat right center / auto 100%;
+			opacity: 0.5;
+			pointer-events: none;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			aspect-ratio: var(--img-ratio, 3693 / 3072);
+			background: linear-gradient(to right, var(--color-base-200), transparent);
+			pointer-events: none;
+		}
+		&.overflow {
+			&::before {
+				background-position: center center;
+			}
+			&::after {
+				right: auto;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+		& > .hero-content {
+			position: relative;
+			z-index: 1;
+		}
 	}
 
-	.title-hero::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: var(--bg-image) no-repeat right center / auto 100%;
-		opacity: 0.5;
-		pointer-events: none;
-	}
-
-	.title-hero::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 100%;
-		aspect-ratio: var(--img-ratio, 3693 / 3072);
-		background: linear-gradient(to right, var(--color-base-200), transparent);
-		pointer-events: none;
-	}
-
-	.title-hero.overflow::before {
-		background-position: center center;
-	}
-
-	.title-hero.overflow::after {
-		right: auto;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	.title-hero > :global(.hero-content) {
-		position: relative;
-		z-index: 1;
+	section {
+		width: 100%;
+		max-width: var(--container-7xl);
+		margin: 0 auto;
+		padding: calc(var(--spacing) * 9) calc(var(--spacing) * 6);
 	}
 </style>

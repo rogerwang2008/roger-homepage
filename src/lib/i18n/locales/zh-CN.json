@@ -5,6 +5,7 @@
 	},
 	"platforms": {
 		"bilibili": "哔哩哔哩",
+		"email": "电子邮件",
 		"gitee": "Gitee",
 		"github": "GitHub",
 		"netease_music": "网易云音乐",
@@ -13,6 +14,8 @@
 		"youtube": "YouTube"
 	},
 	"profile": {
+		"brief_introduction": "我目前是一名准大学生。",
+		"contact_me": "联系我",
 		"name": "汪楚钧",
 		"official_name": "汪楚钧",
 		"roles": {
@@ -26,7 +29,7 @@
 	},
 	"projects": {
 		"basic_spam_classifier": {
-			"descriptions": "基于独立性检验与朴素贝叶斯算法的极简垃圾短信识别程序（数学教材实践项目）。",
+			"descriptions": "基于独立性检验与朴素贝叶斯算法的极简垃圾短信识别程序（中学数学教材实践项目）。",
 			"title": "简易垃圾短信识别器"
 		},
 		"homepage": {

@@ -18,6 +18,7 @@
 	// svelte-ignore state_referenced_locally
 	const icon = platformIcons[platform];
 	const isAsset = 'iconAsset' in icon;
+	const isComponent = 'iconComponent' in icon;
 	// svelte-ignore state_referenced_locally
 	const resolvedTooltip = tooltip ?? $_('platforms.' + platform);
 </script>
@@ -41,11 +42,15 @@
 				src={icon.iconAsset}
 				alt={resolvedTooltip}
 				width={size * 0.8}
-				height={size * 0.8}
 				class="select-none object-certain"
 			/>
+		{:else if isComponent}
+			{@const Component = icon.iconComponent}
+			<Component
+				width={String(size * 0.8)}
+			/>
 		{:else}
-			<Icon icon={icon.iconName} width={size * 0.8} height={size * 0.8} />
+			<Icon icon={icon.iconName} width={size * 0.8} />
 		{/if}
 	</span>
 </a>
