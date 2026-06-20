@@ -9,14 +9,6 @@
 	import { storedLocale } from '$lib/i18n/localStore';
 	import { storedTheme } from '$lib/theme';
 
-	const ThemeIconComponent = $derived(
-		$storedTheme === 'wcj-light'
-			? LightModeIcon
-			: $storedTheme === 'wcj-dark'
-				? DarkModeIcon
-				: LightModeAutoIcon
-	);
-
 	const switchTheme = () => {
 		if ($storedTheme === 'wcj-light') {
 			$storedTheme = 'wcj-dark';
@@ -59,13 +51,13 @@
 			{/each}
 		</ul>
 		<button class="btn btn-ghost" onclick={switchTheme}>
-			<!--{#if $storedTheme === 'wcj-light'}-->
-			<ThemeIconComponent width="24" height="24" />
-			<!--{:else if $storedTheme === 'wcj-dark'}-->
-			<!--	<DarkModeIcon width="24" height="24" />-->
-			<!--{:else}-->
-			<!--	<LightModeAutoIcon width="24" height="24" />-->
-			<!--{/if}-->
+			{#if $storedTheme === 'wcj-light'}
+				<LightModeIcon width="24" height="24" />
+			{:else if $storedTheme === 'wcj-dark'}
+				<DarkModeIcon width="24" height="24" />
+			{:else}
+				<LightModeAutoIcon width="24" height="24" />
+			{/if}
 		</button>
 	</div>
 </div>
