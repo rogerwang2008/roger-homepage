@@ -2,6 +2,8 @@
 	import { _, locale } from 'svelte-i18n';
 	import Project from './Project.svelte';
 	import Platform from '$lib/components/platforms.svelte';
+	import CodeIcon from '@iconify-svelte/material-symbols/code';
+	import MusicNoteIcon from '@iconify-svelte/material-symbols/music-note-2';
 
 	const bgImage = '/three-plush-toys.webp';
 	let imageAspectRatio = $state('3693 / 3072');
@@ -83,7 +85,7 @@
 			projectName="r3d"
 			roles={['backend_engineering_lead', 'frontend_engineering_lead']}
 			bgImage="/projects/r3d-bg.webp"
-			typeIcon="material-symbols:code"
+			TypeIcon={CodeIcon}
 			platforms={[
 				{ platform: 'official_website', url: 'https://r3d.x-way.work' },
 				{ platform: 'github', url: 'https://github.com/RDFZ3D' },
@@ -94,7 +96,7 @@
 			projectName="homepage"
 			roles={['independent_project']}
 			bgImage="/three-plush-toys.webp"
-			typeIcon="material-symbols:code"
+			TypeIcon={CodeIcon}
 			platforms={[
 				{ platform: 'official_website', url: '/' },
 				{ platform: 'github', url: 'https://github.com/rogerwang2008/roger-homepage' }
@@ -103,7 +105,7 @@
 		<Project
 			projectName="basic_spam_classifier"
 			roles={['independent_project']}
-			typeIcon="material-symbols:code"
+			TypeIcon={CodeIcon}
 			platforms={[
 				{ platform: 'github', url: 'https://github.com/rogerwang2008/bayes-spam-filter' }
 			]}
@@ -112,7 +114,7 @@
 			projectName="ran_wan"
 			roles={['composer']}
 			bgImage="/projects/ran_wan_bg.jpg"
-			typeIcon="material-symbols:music-note-2"
+			TypeIcon={MusicNoteIcon}
 			platforms={[
 				{ platform: 'netease_music', url: 'https://music.163.com/#/album?id=272340040' },
 				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/00119Qfy23sDyw' }
@@ -122,7 +124,7 @@
 			projectName="jiu_tian"
 			roles={['composer']}
 			bgImage="/projects/jiu_tian_bg.webp"
-			typeIcon="material-symbols:music-note-2"
+			TypeIcon={MusicNoteIcon}
 			platforms={[
 				{ platform: 'netease_music', url: 'https://music.163.com/#/album?id=260108878' },
 				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/002Fl7l82KtE1O' }
@@ -132,7 +134,7 @@
 			projectName="jiu_tian_rhapsody"
 			roles={['independent_project']}
 			bgImage="/projects/jiu_tian_rhapsody_bg.webp"
-			typeIcon="material-symbols:music-note-2"
+			TypeIcon={MusicNoteIcon}
 			platforms={[
 				{ platform: 'netease_music', url: 'https://music.163.com/song?id=2705681311' },
 				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/songDetail/001WcVUs4LeXSd' }

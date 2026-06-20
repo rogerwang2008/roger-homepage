@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-	import Icon from '@iconify/svelte';
 	import Platform from '$lib/components/platforms.svelte';
 	import type { platformIcons } from '$lib/components/platforms';
+	import MailIcon from '@iconify-svelte/material-symbols/mail';
 
 	let {
 		projectName,
 		roles,
 		bgImage,
 		platforms,
-		typeIcon
+		TypeIcon
 	}: {
 		projectName: string;
 		roles?: string[];
@@ -19,7 +19,7 @@
 			url: string;
 			tooltip?: string;
 		}[];
-		typeIcon?: string;
+		TypeIcon?: typeof MailIcon;
 	} = $props();
 </script>
 
@@ -28,9 +28,9 @@
 	class:has-bg={bgImage}
 	style={bgImage ? '--bg-image: url(' + bgImage + ')' : ''}
 >
-	{#if typeIcon}
+	{#if TypeIcon}
 		<div class="type-icon">
-			<Icon icon={typeIcon} width="28" height="28" />
+			<TypeIcon width="24" height="24" />
 		</div>
 	{/if}
 	<div class="card-body p-6 gap-4">
