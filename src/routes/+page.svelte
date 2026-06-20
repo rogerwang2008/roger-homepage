@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
 	import Project from './Project.svelte';
-	import Platforms from '$lib/components/platforms.svelte';
+	import Platform from '$lib/components/platforms.svelte';
 
 	const bgImage = '/three-plush-toys.webp';
 	let imageAspectRatio = $state('3693 / 3072');
@@ -62,18 +62,16 @@
 	<h3 class="text-2xl font-bold my-6">{$_('profile.contact_me')}</h3>
 	<div class="flex flex-col gap-2">
 		<div class="card-actions flex-wrap gap-2 items-center">
-			<Platforms platform="email" url="mailto:wangchujun@hiroger.wang" />
-			<a href="mailto:wangchujun@hiroger.wang">wangchujun@hiroger.wang</a>
+			<Platform platform="email" url="mailto:wangchujun@hiroger.wang" description="wangchujun@hiroger.wang" />
 		</div>
 		<div class="card-actions flex-wrap gap-2 items-center">
-			<Platforms platform="email" url="mailto:rogerwang2008@outlook.com" />
-			<a href="mailto:rogerwang2008@outlook.com">rogerwang2008@outlook.com</a>
+			<Platform platform="email" url="mailto:rogerwang2008@outlook.com" description="rogerwang2008@outlook.com" />
 		</div>
 		<div class="card-actions flex-wrap gap-2 items-center">
-			<Platforms platform="github" url="https://github.com/rogerwang2008" />
-			<Platforms platform="bilibili" url="https://space.bilibili.com/424151176" />
-			<Platforms platform="netease_music" url="https://music.163.com/#/artist?id=98462179" />
-			<Platforms platform="qq_music" url="https://y.qq.com/n/ryqq_v2/singer/00070V2k3RxFfm" />
+			<Platform platform="github" url="https://github.com/rogerwang2008" description="{$_('platforms.github')}: @rogerwang2008" />
+			<Platform platform="bilibili" url="https://space.bilibili.com/424151176" description={$_('platforms.bilibili')} />
+			<Platform platform="netease_music" url="https://music.163.com/#/artist?id=98462179" description={$_('platforms.netease_music')} />
+			<Platform platform="qq_music" url="https://y.qq.com/n/ryqq_v2/singer/00070V2k3RxFfm" description={$_('platforms.qq_music')} />
 		</div>
 	</div>
 </section>

@@ -7,12 +7,14 @@
 		platform,
 		url,
 		size = 36,
-		tooltip
+		tooltip,
+		description
 	}: {
 		platform: keyof typeof platformIcons;
 		url: string;
 		size?: number;
 		tooltip?: string;
+		description?: string;
 	} = $props();
 
 	// svelte-ignore state_referenced_locally
@@ -25,7 +27,7 @@
 
 <!-- eslint-disable svelte/no-navigation-without-resolve -->
 <a
-	class="tooltip inline-flex"
+	class="tooltip inline-flex items-center"
 	data-tip={resolvedTooltip}
 	href={url}
 	target="_blank"
@@ -53,4 +55,7 @@
 			<Icon icon={icon.iconName} width={size * 0.8} />
 		{/if}
 	</span>
+	{#if description}
+		<span class="ml-2 mr-3 text-inherit">{description}</span>
+	{/if}
 </a>

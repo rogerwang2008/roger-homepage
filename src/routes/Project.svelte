@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import Icon from '@iconify/svelte';
-	import Platforms from '$lib/components/platforms.svelte';
+	import Platform from '$lib/components/platforms.svelte';
 	import type { platformIcons } from '$lib/components/platforms';
 
 	let {
@@ -57,7 +57,7 @@
 		{#if platforms && platforms.length > 0}
 			<div class="card-actions flex-wrap gap-2">
 				{#each platforms as social (social.platform)}
-					<Platforms platform={social.platform} url={social.url} tooltip={social.tooltip} />
+					<Platform platform={social.platform} url={social.url} tooltip={social.tooltip} />
 				{/each}
 			</div>
 		{/if}
