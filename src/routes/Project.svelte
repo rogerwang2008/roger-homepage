@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import Icon from '@iconify/svelte';
+	import MailIcon from '@iconify-svelte/material-symbols/mail';
 	import Platform from '$lib/components/platforms.svelte';
 	import type { platformIcons } from '$lib/components/platforms';
-	import MailIcon from '@iconify-svelte/material-symbols/mail';
 
 	let {
 		projectName,
 		roles,
 		bgImage,
 		platforms,
-		TypeIcon
+		TypeIcon,
+		SubTypeIcon
 	}: {
 		projectName: string;
 		roles?: string[];
@@ -19,7 +21,8 @@
 			url: string;
 			tooltip?: string;
 		}[];
-		TypeIcon?: typeof MailIcon;
+		TypeIcon?: string | typeof MailIcon;
+		SubTypeIcon?: string | typeof MailIcon;
 	} = $props();
 </script>
 
@@ -30,7 +33,18 @@
 >
 	{#if TypeIcon}
 		<div class="type-icon">
-			<TypeIcon width="24" height="24" />
+			{#if typeof TypeIcon === 'string'}
+				<Icon icon={TypeIcon} width="24" height="24" />
+			{:else}
+				<TypeIcon width="24" height="24" />
+			{/if}
+			{#if SubTypeIcon}
+				{#if typeof SubTypeIcon === 'string'}
+					<Icon icon={SubTypeIcon} width="24" height="24" />
+				{:else}
+					<SubTypeIcon width="24" height="24" />
+				{/if}
+			{/if}
 		</div>
 	{/if}
 	<div class="card-body p-6 gap-4">
@@ -81,6 +95,10 @@
 			right: 0.75rem;
 			z-index: 2;
 			opacity: 0.6;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.25rem;
 		}
 	}
 

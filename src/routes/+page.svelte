@@ -4,6 +4,8 @@
 	import Platform from '$lib/components/platforms.svelte';
 	import CodeIcon from '@iconify-svelte/material-symbols/code';
 	import MusicNoteIcon from '@iconify-svelte/material-symbols/music-note-2';
+	import SvelteIcon from '@iconify-svelte/devicon-plain/svelte';
+	import PythonIcon from '@iconify-svelte/devicon-plain/python';
 
 	const bgImage = '/three-plush-toys.webp';
 	let imageAspectRatio = $state('3693 / 3072');
@@ -64,16 +66,40 @@
 	<h3 class="text-2xl font-bold my-6">{$_('profile.contact_me')}</h3>
 	<div class="flex flex-col gap-2">
 		<div class="card-actions flex-wrap gap-2 items-center">
-			<Platform platform="email" url="mailto:wangchujun@hiroger.wang" description="wangchujun@hiroger.wang" />
+			<Platform
+				platform="email"
+				url="mailto:wangchujun@hiroger.wang"
+				description="wangchujun@hiroger.wang"
+			/>
 		</div>
 		<div class="card-actions flex-wrap gap-2 items-center">
-			<Platform platform="email" url="mailto:rogerwang2008@outlook.com" description="rogerwang2008@outlook.com" />
+			<Platform
+				platform="email"
+				url="mailto:rogerwang2008@outlook.com"
+				description="rogerwang2008@outlook.com"
+			/>
 		</div>
 		<div class="card-actions flex-wrap gap-2 items-center">
-			<Platform platform="github" url="https://github.com/rogerwang2008" description="{$_('platforms.github')}: @rogerwang2008" />
-			<Platform platform="bilibili" url="https://space.bilibili.com/424151176" description={$_('platforms.bilibili')} />
-			<Platform platform="netease_music" url="https://music.163.com/#/artist?id=98462179" description={$_('platforms.netease_music')} />
-			<Platform platform="qq_music" url="https://y.qq.com/n/ryqq_v2/singer/00070V2k3RxFfm" description={$_('platforms.qq_music')} />
+			<Platform
+				platform="github"
+				url="https://github.com/rogerwang2008"
+				description="{$_('platforms.github')}: @rogerwang2008"
+			/>
+			<Platform
+				platform="bilibili"
+				url="https://space.bilibili.com/424151176"
+				description={$_('platforms.bilibili')}
+			/>
+			<Platform
+				platform="netease_music"
+				url="https://music.163.com/#/artist?id=98462179"
+				description={$_('platforms.netease_music')}
+			/>
+			<Platform
+				platform="qq_music"
+				url="https://y.qq.com/n/ryqq_v2/singer/00070V2k3RxFfm"
+				description={$_('platforms.qq_music')}
+			/>
 		</div>
 	</div>
 </section>
@@ -97,6 +123,7 @@
 			roles={['independent_project']}
 			bgImage="/three-plush-toys.webp"
 			TypeIcon={CodeIcon}
+			SubTypeIcon={SvelteIcon}
 			platforms={[
 				{ platform: 'official_website', url: '/' },
 				{ platform: 'github', url: 'https://github.com/rogerwang2008/roger-homepage' }
@@ -106,6 +133,7 @@
 			projectName="basic_spam_classifier"
 			roles={['independent_project']}
 			TypeIcon={CodeIcon}
+			SubTypeIcon={PythonIcon}
 			platforms={[
 				{ platform: 'github', url: 'https://github.com/rogerwang2008/bayes-spam-filter' }
 			]}
@@ -115,6 +143,7 @@
 			roles={['composer']}
 			bgImage="/projects/ran_wan_bg.jpg"
 			TypeIcon={MusicNoteIcon}
+			SubTypeIcon="mdi:violin"
 			platforms={[
 				{ platform: 'netease_music', url: 'https://music.163.com/#/album?id=272340040' },
 				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/00119Qfy23sDyw' }
@@ -125,6 +154,7 @@
 			roles={['composer']}
 			bgImage="/projects/jiu_tian_bg.webp"
 			TypeIcon={MusicNoteIcon}
+			SubTypeIcon="boxicons:microphone-alt-2"
 			platforms={[
 				{ platform: 'netease_music', url: 'https://music.163.com/#/album?id=260108878' },
 				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/002Fl7l82KtE1O' }
@@ -135,6 +165,7 @@
 			roles={['independent_project']}
 			bgImage="/projects/jiu_tian_rhapsody_bg.webp"
 			TypeIcon={MusicNoteIcon}
+			SubTypeIcon="mdi:violin"
 			platforms={[
 				{ platform: 'netease_music', url: 'https://music.163.com/song?id=2705681311' },
 				{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/songDetail/001WcVUs4LeXSd' }

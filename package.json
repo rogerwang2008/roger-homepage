@@ -16,6 +16,8 @@
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@fontsource/fira-mono": "^5.2.7",
+		"@iconify-svelte/devicon": "^1.0.19",
+		"@iconify-svelte/devicon-plain": "^1.0.18",
 		"@iconify-svelte/material-symbols": "^1.0.38",
 		"@iconify/svelte": "^5.2.2",
 		"@neoconfetti/svelte": "^2.2.2",
