@@ -1,4 +1,9 @@
 {
+	"friendly_links": {
+		"annot": "Annot Shan (单提宇)",
+		"kip": "Kip Ma (马渊)",
+		"title": "Friendly Links"
+	},
 	"index": {
 		"greeting": "Hi! I’m",
 		"title": "Roger Wang's Homepage"

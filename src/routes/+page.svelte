@@ -1,11 +1,17 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
-	import Project from './Project.svelte';
-	import Platform from '$lib/components/platforms.svelte';
 	import CodeIcon from '@iconify-svelte/material-symbols/code';
 	import MusicNoteIcon from '@iconify-svelte/material-symbols/music-note-2';
 	import SvelteIcon from '@iconify-svelte/devicon-plain/svelte';
 	import PythonIcon from '@iconify-svelte/devicon-plain/python';
+
+	import Platform from '$lib/components/platforms.svelte';
+
+	import Project from './Project.svelte';
+	import FriendLink from './FriendLink.svelte';
+
+	import AnnotShanIcon from '$lib/assets/images/icons/annot-shan.svg'
+	import KipMaIcon from '$lib/assets/images/icons/kip-ma.webp'
 
 	const bgImage = '/three-plush-toys.webp';
 	let imageAspectRatio = $state('3693 / 3072');
@@ -64,7 +70,7 @@
 <div class="animate-fade-in-delay-2">
 	<section>
 		<p class="text-lg">{$_('profile.brief_introduction')}</p>
-		<h3 class="text-2xl font-bold my-6">{$_('profile.contact_me')}</h3>
+		<h3 class="my-6">{$_('profile.contact_me')}</h3>
 		<div class="flex flex-col gap-2">
 			<div class="card-actions flex-wrap gap-2 items-center">
 				<Platform
@@ -106,7 +112,7 @@
 	</section>
 
 	<section>
-		<h2 class="text-4xl font-bold mb-9">{$_('projects.title')}</h2>
+		<h2 class="mb-9">{$_('projects.title')}</h2>
 		<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 			<Project
 				projectName="r3d"
@@ -174,6 +180,24 @@
 			/>
 		</div>
 	</section>
+
+	<section>
+		<h2 class="mb-9">{$_('friendly_links.title')}</h2>
+		<div class="flex flex-wrap gap-2">
+			<FriendLink
+				Icon={AnnotShanIcon}
+				bgImage="/friend-links/annot-homepage-bg.webp"
+				title={$_('friendly_links.annot')}
+				url="http://annot.x-way.work/"
+			/>
+			<FriendLink
+				Icon={KipMaIcon}
+				bgImage="/friend-links/kip-website-bg.webp"
+				title={$_('friendly_links.kip')}
+				url="https://kip.gay"
+			/>
+		</div>
+	</section>
 </div>
 
 <style>
@@ -222,5 +246,15 @@
 		max-width: var(--container-7xl);
 		margin: 0 auto;
 		padding: calc(var(--spacing) * 9) calc(var(--spacing) * 6);
+		h2,
+		h3 {
+			font-weight: bold;
+		}
+		h2 {
+			font-size: var(--text-4xl);
+		}
+		h3 {
+			font-size: var(--text-2xl);
+		}
 	}
 </style>

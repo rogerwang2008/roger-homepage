@@ -1,7 +1,7 @@
 import MailIcon from '@iconify-svelte/material-symbols/mail';
 import LanguageIcon from '@iconify-svelte/material-symbols/language';
 
-import qqMusicAsset from '$lib/assets/images/qq_music_icon.svg';
+import qqMusicAsset from '$lib/assets/images/icons/qq-music.svg';
 
 interface PlatformIconBase {
 	color: string;
