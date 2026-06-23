@@ -20,7 +20,7 @@
 	};
 </script>
 
-<div class="navbar sticky top-0 z-1000 bg-base-200">
+<div class="navbar sticky top-0 z-1000 bg-base-200 animate-fade-in">
 	<div class="flex-1">
 		<a class="btn btn-ghost text-xl" href={resolve('/')}>{$_('profile.name')}</a>
 	</div>
