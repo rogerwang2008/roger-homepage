@@ -6,6 +6,7 @@ export const getClosestLocale = (locale: string) => {
 	if (locales.includes(locale)) {
 		return locale;
 	}
+	if (locale === "zh-TW") return "zh-HK";
 	const prefix = locale.split('-')[0];
 	const matched = locales.find((l) => l.startsWith(prefix));
 	if (matched) return matched;
