@@ -1,29 +1,26 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import Icon from '@iconify/svelte';
-	import MailIcon from '@iconify-svelte/material-symbols/mail';
 	import Platform from '$lib/components/platforms.svelte';
-	import type { platformIcons } from '$lib/components/platforms';
+	import { projects, projectTypes, type ProjectConfig } from './projects';
 
-	let {
-		projectName,
-		roles,
-		bgImage,
-		platforms,
-		TypeIcon,
-		SubTypeIcon
-	}: {
-		projectName: string;
-		roles?: string[];
-		bgImage?: string;
-		platforms?: {
-			platform: keyof typeof platformIcons;
-			url: string;
-			tooltip?: string;
-		}[];
-		TypeIcon?: string | typeof MailIcon;
-		SubTypeIcon?: string | typeof MailIcon;
-	} = $props();
+	let { projectName }: { projectName: keyof typeof projects } = $props();
+
+	// svelte-ignore state_referenced_locally
+	const config: ProjectConfig = projects[projectName];
+	// svelte-ignore state_referenced_locally
+	const roles = config.roles;
+	// svelte-ignore state_referenced_locally
+	const bgImage = config.bgImage;
+	// svelte-ignore state_referenced_locally
+	const platformsList = config.platforms;
+
+	// svelte-ignore state_referenced_locally
+	const typeConfig = config.type ? projectTypes[config.type as keyof typeof projectTypes] : undefined;
+	// svelte-ignore state_referenced_locally
+	const TypeIcon = typeConfig?.icon;
+	// svelte-ignore state_referenced_locally
+	const SubTypeIcon = config.subType && typeConfig ? (typeConfig.subTypes as Record<string, { icon: typeof typeConfig.icon }>)[config.subType]?.icon : undefined;
 </script>
 
 <div
@@ -68,9 +65,9 @@
 				{/each}
 			</div>
 		{/if}
-		{#if platforms && platforms.length > 0}
+		{#if platformsList && platformsList.length > 0}
 			<div class="card-actions flex-wrap gap-2">
-				{#each platforms as social (social.platform)}
+				{#each platformsList as social (social.platform)}
 					<Platform platform={social.platform} url={social.url} tooltip={social.tooltip} />
 				{/each}
 			</div>

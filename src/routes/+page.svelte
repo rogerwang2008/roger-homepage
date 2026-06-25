@@ -1,13 +1,9 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
-	import CodeIcon from '@iconify-svelte/material-symbols/code';
-	import MusicNoteIcon from '@iconify-svelte/material-symbols/music-note-2';
-	import SvelteIcon from '@iconify-svelte/devicon-plain/svelte';
-	import PythonIcon from '@iconify-svelte/devicon-plain/python';
 
 	import Platform from '$lib/components/platforms.svelte';
+	import Project from '$lib/components/projects.svelte';
 
-	import Project from './Project.svelte';
 	import FriendLink from './FriendLink.svelte';
 
 	import AnnotShanIcon from '$lib/assets/images/icons/annot-shan.svg'
@@ -114,70 +110,12 @@
 	<section>
 		<h2 class="mb-9">{$_('projects.title')}</h2>
 		<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-			<Project
-				projectName="r3d"
-				roles={['backend_engineering_lead', 'frontend_engineering_lead']}
-				bgImage="/projects/r3d-bg.webp"
-				TypeIcon={CodeIcon}
-				platforms={[
-					{ platform: 'official_website', url: 'https://r3d.x-way.work' },
-					{ platform: 'github', url: 'https://github.com/RDFZ3D' },
-					{ platform: 'gitee', url: 'https://gitee.com/RDFZ3D' }
-				]}
-			/>
-			<Project
-				projectName="homepage"
-				roles={['independent_project']}
-				bgImage="/three-plush-toys.webp"
-				TypeIcon={CodeIcon}
-				SubTypeIcon={SvelteIcon}
-				platforms={[
-					{ platform: 'official_website', url: '/' },
-					{ platform: 'github', url: 'https://github.com/rogerwang2008/roger-homepage' }
-				]}
-			/>
-			<Project
-				projectName="basic_spam_classifier"
-				roles={['independent_project']}
-				TypeIcon={CodeIcon}
-				SubTypeIcon={PythonIcon}
-				platforms={[
-					{ platform: 'github', url: 'https://github.com/rogerwang2008/bayes-spam-filter' }
-				]}
-			/>
-			<Project
-				projectName="ran_wan"
-				roles={['composer']}
-				bgImage="/projects/ran_wan_bg.jpg"
-				TypeIcon={MusicNoteIcon}
-				SubTypeIcon="mdi:violin"
-				platforms={[
-					{ platform: 'netease_music', url: 'https://music.163.com/#/album?id=272340040' },
-					{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/00119Qfy23sDyw' }
-				]}
-			/>
-			<Project
-				projectName="jiu_tian"
-				roles={['composer']}
-				bgImage="/projects/jiu_tian_bg.webp"
-				TypeIcon={MusicNoteIcon}
-				SubTypeIcon="boxicons:microphone-alt-2"
-				platforms={[
-					{ platform: 'netease_music', url: 'https://music.163.com/#/album?id=260108878' },
-					{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/albumDetail/002Fl7l82KtE1O' }
-				]}
-			/>
-			<Project
-				projectName="jiu_tian_rhapsody"
-				roles={['independent_project']}
-				bgImage="/projects/jiu_tian_rhapsody_bg.webp"
-				TypeIcon={MusicNoteIcon}
-				SubTypeIcon="mdi:violin"
-				platforms={[
-					{ platform: 'netease_music', url: 'https://music.163.com/song?id=2705681311' },
-					{ platform: 'qq_music', url: 'https://y.qq.com/n/ryqq_v2/songDetail/001WcVUs4LeXSd' }
-				]}
-			/>
+			<Project projectName="r3d" />
+			<Project projectName="homepage" />
+			<Project projectName="basic_spam_classifier" />
+			<Project projectName="ran_wan" />
+			<Project projectName="jiu_tian" />
+			<Project projectName="jiu_tian_rhapsody" />
 		</div>
 	</section>
 
