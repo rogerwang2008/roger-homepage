@@ -16,20 +16,34 @@
 	const platformsList = config.platforms;
 
 	// svelte-ignore state_referenced_locally
-	const typeConfig = config.type ? projectTypes[config.type as keyof typeof projectTypes] : undefined;
+	const typeConfig = config.type
+		? projectTypes[config.type as keyof typeof projectTypes]
+		: undefined;
 	// svelte-ignore state_referenced_locally
 	const TypeIcon = typeConfig?.icon;
 	// svelte-ignore state_referenced_locally
-	const SubTypeIcon = config.subType && typeConfig ? (typeConfig.subTypes as Record<string, { icon: typeof typeConfig.icon }>)[config.subType]?.icon : undefined;
+	const SubTypeIcon =
+		config.subType && typeConfig
+			? (typeConfig.subTypes as Record<string, { icon: typeof typeConfig.icon }>)[config.subType]
+					?.icon
+			: undefined;
 </script>
 
 <div
-	class="project-card card bg-base-200"
+	class="project-card card bg-base-200 relative overflow-visible"
 	class:has-bg={bgImage}
 	style={bgImage ? '--bg-image: url(' + bgImage + ')' : ''}
 >
+	<svg
+		class="absolute inset-0 w-full h-full z-3 pointer-events-none border-svg opacity-50"
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 1000 600"
+		preserveAspectRatio="none"
+	>
+		<rect class="border-path" x="0" y="0" width="1000" height="600" fill="none" />
+	</svg>
 	{#if TypeIcon}
-		<div class="type-icon">
+		<div class="type-icon absolute top-3 right-3 z-2 opacity-60 flex flex-col items-center gap-1">
 			{#if typeof TypeIcon === 'string'}
 				<Icon icon={TypeIcon} width="24" height="24" />
 			{:else}
@@ -44,9 +58,11 @@
 			{/if}
 		</div>
 	{/if}
-	<div class="card-body p-6 gap-4">
+	<div class="card-body p-6 gap-4 relative z-1">
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-		<h2 class="card-title text-2xl font-bold me-3">{@html $_(`projects.${projectName}.title`)}</h2>
+		<h2 class="card-title text-2xl font-bold me-3 block">
+			{@html $_(`projects.${projectName}.title`)}
+		</h2>
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		<p class="opacity-80">{@html $_(`projects.${projectName}.descriptions`)}</p>
 		{#if roles && roles.length > 0}
@@ -77,25 +93,36 @@
 
 <style>
 	.project-card {
-		position: relative;
+		.border-path {
+			stroke: var(--color-base-content);
+			stroke-width: 2;
+			stroke-linejoin: miter;
+			stroke-dasharray: 3200;
+			stroke-dashoffset: 3200;
+			vector-effect: non-scaling-stroke;
+			animation: border-clockwise-reverse 0.6s ease forwards;
+		}
+	}
 
-		.card-title {
-			display: block;
+	.project-card:hover .border-path {
+		animation: border-clockwise 0.6s ease forwards;
+	}
+
+	@keyframes border-clockwise {
+		from {
+			stroke-dashoffset: 3200;
 		}
-		.card-body {
-			position: relative;
-			z-index: 1;
+		to {
+			stroke-dashoffset: 0;
 		}
-		.type-icon {
-			position: absolute;
-			top: 0.75rem;
-			right: 0.75rem;
-			z-index: 2;
-			opacity: 0.6;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 0.25rem;
+	}
+
+	@keyframes border-clockwise-reverse {
+		from {
+			stroke-dashoffset: 0;
+		}
+		to {
+			stroke-dashoffset: -3200;
 		}
 	}
 
