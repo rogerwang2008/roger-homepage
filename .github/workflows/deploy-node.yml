@@ -23,8 +23,6 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: your-app-name    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '24.x'                # set this to the node version to use
 
 permissions:
@@ -69,18 +67,43 @@ jobs:
         name: node-app
         path: ./build
 
-    - name: Install SSH Keys
-        # check this thread to understand why its needed:
-        # https://stackoverflow.com/a/70447517
-      run: |
-        install -m 600 -D /dev/null ~/.ssh/id_ed25519
-        echo "${{ secrets.WCJ_SERVER_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-        ssh-keyscan -H ${{ secrets.WCJ_SERVER_HOST }} > ~/.ssh/known_hosts
+#    - name: Install SSH Keys
+#        # check this thread to understand why its needed:
+#        # https://stackoverflow.com/a/70447517
+#      run: |
+#        install -m 600 -D /dev/null ~/.ssh/id_ed25519
+#        echo "${{ secrets.WCJ_SERVER_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+#        ssh-keyscan -H ${{ secrets.WCJ_SERVER_HOST }} > ~/.ssh/known_hosts
 
-    - name: Deploy
-      run: |
-        scp -r ./build/ ubuntu@${{ secrets.WCJ_SERVER_HOST }}:/var/www/nodejs
-        ssh ubuntu@${{ secrets.WCJ_SERVER_HOST }} "cd /var/www/nodejs && rm -r homepage && mv build homepage && eval \"\$(/home/ubuntu/.local/share/fnm/fnm env)\" && pm2 reload homepage"
+    - name: Upload build via SCP
+      uses: appleboy/scp-action@v1
+      with:
+        host: ${{ secrets.WCJ_SERVER_HOST }}
+        username: ubuntu
+        key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
+        source: "./build/*"
+        target: "/var/www/nodejs/homepage/build_tmp"
 
-    - name: Cleanup
-      run: "rm -rf ~/.ssh"
+#    - name: Deploy
+#      run: |
+#        scp -r ./build/ ubuntu@${{ secrets.WCJ_SERVER_HOST }}:/var/www/nodejs
+#        ssh ubuntu@${{ secrets.WCJ_SERVER_HOST }} "cd /var/www/nodejs && rm -r homepage && mv build homepage && eval \"\$(/home/ubuntu/.local/share/fnm/fnm env)\" && pm2 reload homepage"
+#
+#    - name: Cleanup
+#      run: "rm -rf ~/.ssh"
+
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.WCJ_SERVER_HOST }}
+        username: ubuntu
+        key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
+        script: |
+          cd /var/www/nodejs/homepage
+          
+          # 保留旧版本
+          rm -rf build_old
+          mv build build_old || true
+          mv build_tmp build
+          eval "$(/home/ubuntu/.local/share/fnm/fnm env)"
+          pm2 reload ecosystem.config.js --update-env
