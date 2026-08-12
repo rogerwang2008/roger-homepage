@@ -74,7 +74,7 @@ jobs:
         username: ${{ secrets.WCJ_SERVER_USERNAME }}
         key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
         source: "./build/*"
-        target: "/var/www/nodejs/homepage/build_tmp"
+        target: "/var/www/nodejs/deploy_buffer/build"
 
     - name: Deploy via SSH
       uses: appleboy/ssh-action@v1
@@ -83,10 +83,4 @@ jobs:
         username: ${{ secrets.WCJ_SERVER_USERNAME }}
         key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
         script: |
-          cd /var/www/nodejs/homepage
-          
-          rm -rf build_old
-          mv build build_old || true
-          mv build_tmp build
-          
-          sudo -u ubuntu ./reload.sh
+          sudo -u ubuntu /var/www/nodejs/reload.sh homepage
