@@ -48,6 +48,15 @@ jobs:
         name: node-app
         path: ./build
 
+    - name: Test via SSH
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.WCJ_SERVER_HOST }}
+        username: ${{ secrets.WCJ_SERVER_USERNAME }}
+        key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
+        script: |
+          echo Hi
+
     - name: Upload build via SCP
       uses: appleboy/scp-action@v1
       with:
