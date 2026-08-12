@@ -63,8 +63,9 @@ jobs:
         host: ${{ secrets.WCJ_SERVER_HOST }}
         username: ${{ secrets.WCJ_SERVER_USERNAME }}
         key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
-        source: "./build/*"
-        target: "/var/www/nodejs/deploy_buffer/homepage/build"
+        source: "./build/"
+        target: "/var/www/nodejs/deploy_buffer/homepage/"
+        rm: true
 
     - name: Deploy via SSH
       uses: appleboy/ssh-action@v1
