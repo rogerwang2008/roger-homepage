@@ -1,62 +1,62 @@
 {
-	"friendly_links": {
-		"annot": "Annot Shan (单提宇)",
-		"kip": "Kip Ma (马渊)",
-		"title": "Friendly Links"
-	},
-	"index": {
-		"greeting": "Hi! I’m",
-		"title": "Roger Wang's Homepage"
-	},
-	"platforms": {
-		"bilibili": "BiliBili",
-		"email": "E-mail",
-		"gitee": "Gitee",
-		"github": "GitHub",
-		"netease_music": "NetEase Cloud Music",
-		"official_website": "Official wensite",
-		"qq_music": "QQ Music",
-		"youtube": "YouTube"
-	},
-	"profile": {
-		"brief_introduction": "I am an incoming freshman who will be studying at the School of Electronics Engineering and Computer Science (EECS) at Peking University (PKU).",
-		"contact_me": "Contact me",
-		"name": "Roger Wang",
-		"official_name": "Wang Chujun",
-		"roles": {
-			"backend_engineer": "Backend Engineer",
-			"backend_engineering_lead": "Backend Engineering Lead",
-			"composer": "Composer",
-			"frontend_engineer": "Frontend Engineer",
-			"frontend_engineering_lead": "Frontend Engineering Lead",
-			"independent_project": "Independent project"
-		}
-	},
-	"projects": {
-		"basic_spam_classifier": {
-			"descriptions": "A minimalist spam SMS detector built on chi-squared test and the Naive Bayes algorithm. This is a middle-school mathematics textbook practice project.",
-			"title": "Basic Spam Text Classifier"
-		},
-		"homepage": {
-			"descriptions": "This page 😄",
-			"title": "Roger’s Homepage"
-		},
-		"jiu_tian": {
-			"descriptions": "The class anthem for Class 9, High School Class of 2026, at <dfn><abbr title=\"High School Affiliated to Renmin University of China\">RDFZ</abbr></dfn>. The song was primarily composed and arranged by our class monitor, Shan Tiyu. I had the honor of co-composing and arranging the harmonies.",
-			"title": "九天 (<i>Jǐu Tiān</i>)"
-		},
-		"jiu_tian_rhapsody": {
-			"descriptions": "A orchestral rhapsody inspired by the song <i>Jǐu Tiān</i>. Not really a “Prelude”. This was my very first released work, composed during my first year of high school.",
-			"title": "九天序曲 (<i>Jǐu Tiān Prelude</i>)"
-		},
-		"r3d": {
-			"descriptions": "The <dfn><abbr title=\"High School Affiliated to Renmin University of China\">RDFZ</abbr></dfn> Digital Campus Project, mainly powered by Unity.",
-			"title": "<i>Eternal RDFZ</i>"
-		},
-		"ran_wan": {
-			"descriptions": "An official entry for the 20th RDFZ Film Festival. Featuring a fully orchestral score, it was the only film at the festival to extensively use original music that deeply resonated with the narrative, ultimately winning the Best Original Score award.",
-			"title": "燃晚 (<i>Rán Wǎn</i>)"
-		},
-		"title": "My Works"
-	}
+  "friendly_links": {
+    "annot": "Annot Shan (单提宇)",
+    "kip": "Kip Ma (马渊)",
+    "title": "Friendly Links"
+  },
+  "index": {
+    "greeting": "Hi! I’m",
+    "title": "Roger Wang's Homepage"
+  },
+  "platforms": {
+    "bilibili": "BiliBili",
+    "email": "E-mail",
+    "gitee": "Gitee",
+    "github": "GitHub",
+    "netease_music": "NetEase Cloud Music",
+    "official_website": "Official wensite",
+    "qq_music": "QQ Music",
+    "youtube": "YouTube"
+  },
+  "profile": {
+    "brief_introduction": "I am a 2026 undergraduate student at the School of Electronics Engineering and Computer Science (EECS), Peking University (PKU).",
+    "contact_me": "Contact me",
+    "name": "Roger Wang",
+    "official_name": "Wang Chujun",
+    "roles": {
+      "backend_engineer": "Backend Engineer",
+      "backend_engineering_lead": "Backend Engineering Lead",
+      "composer": "Composer",
+      "frontend_engineer": "Frontend Engineer",
+      "frontend_engineering_lead": "Frontend Engineering Lead",
+      "independent_project": "Independent project"
+    }
+  },
+  "projects": {
+    "basic_spam_classifier": {
+      "descriptions": "A minimalist spam SMS detector built on chi-squared test and the Naive Bayes algorithm. This is a middle-school mathematics textbook practice project.",
+      "title": "Basic Spam Text Classifier"
+    },
+    "homepage": {
+      "descriptions": "This page 😄",
+      "title": "Roger’s Homepage"
+    },
+    "jiu_tian": {
+      "descriptions": "The class anthem for Class 9, High School Class of 2026, at <dfn><abbr title=\"High School Affiliated to Renmin University of China\">RDFZ</abbr></dfn>. The song was primarily composed and arranged by our class monitor, Shan Tiyu. I had the honor of co-composing and arranging the harmonies.",
+      "title": "九天 (<i>Jǐu Tiān</i>)"
+    },
+    "jiu_tian_rhapsody": {
+      "descriptions": "A orchestral rhapsody inspired by the song <i>Jǐu Tiān</i>. Not really a “Prelude”. This was my very first released work, composed during my first year of high school.",
+      "title": "九天序曲 (<i>Jǐu Tiān Prelude</i>)"
+    },
+    "r3d": {
+      "descriptions": "The <dfn><abbr title=\"High School Affiliated to Renmin University of China\">RDFZ</abbr></dfn> Digital Campus Project, mainly powered by Unity.",
+      "title": "<i>Eternal RDFZ</i>"
+    },
+    "ran_wan": {
+      "descriptions": "An official entry for the 20th RDFZ Film Festival. Featuring a fully orchestral score, it was the only film at the festival to extensively use original music that deeply resonated with the narrative, ultimately winning the Best Original Score award.",
+      "title": "燃晚 (<i>Rán Wǎn</i>)"
+    },
+    "title": "My Works"
+  }
 }
