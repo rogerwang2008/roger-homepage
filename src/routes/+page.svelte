@@ -4,10 +4,7 @@
 	import Platform from '$lib/components/platforms.svelte';
 	import Project from '$lib/components/projects.svelte';
 
-	import FriendLink from './FriendLink.svelte';
-
-	import AnnotShanIcon from '$lib/assets/images/icons/annot-shan.svg'
-	import KipMaIcon from '$lib/assets/images/icons/kip-ma.webp'
+	import FriendLink from '$lib/components/friendLinks.svelte';
 
 	const bgImage = '/three-plush-toys.webp';
 	let imageAspectRatio = $state('3693 / 3072');
@@ -122,18 +119,9 @@
 	<section>
 		<h2 class="mb-9">{$_('friendly_links.title')}</h2>
 		<div class="flex flex-wrap gap-2">
-			<FriendLink
-				Icon={AnnotShanIcon}
-				bgImage="/friend-links/annot-homepage-bg.webp"
-				title={$_('friendly_links.annot')}
-				url="http://annot.x-way.work/"
-			/>
-			<FriendLink
-				Icon={KipMaIcon}
-				bgImage="/friend-links/kip-website-bg.webp"
-				title={$_('friendly_links.kip')}
-				url="https://kip.gay"
-			/>
+			<FriendLink friendLinkName="annot" />
+			<FriendLink friendLinkName="kip" />
+			<FriendLink friendLinkName="archaeus13" />
 		</div>
 	</section>
 </div>

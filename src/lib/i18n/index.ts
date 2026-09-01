@@ -1,4 +1,5 @@
 import { init, register } from 'svelte-i18n';
+import { _ } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { storedLocale } from './localStore';
 import { defaultLocale, getClosestLocale, getLanguageName, locales } from './localesConfig.ts';
@@ -12,3 +13,8 @@ init({
 	fallbackLocale: defaultLocale,
 	initialLocale: get(storedLocale)
 });
+
+export function hasTranslation(key: string): boolean {
+	const translated = get(_)(key);
+	return translated !== key && typeof translated === 'string' && translated.trim() !== '';
+}
