@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import Icon from '@iconify/svelte';
-	import Platform from '$lib/components/platforms.svelte';
+	import Platform from '#lib/components/platforms.svelte';
 	import { projects, projectTypes, type ProjectConfig } from './projects';
 
 	let { projectName }: { projectName: keyof typeof projects } = $props();

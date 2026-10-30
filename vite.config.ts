@@ -13,6 +13,10 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
+			paths: {
+				// adapter-node removed the ORIGIN env var; set the public-facing origin here.
+				origin: 'https://www.hiroger.wang'
+			},
 
 			// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
 			// If your environment is not supported, or you settled on a specific environment, switch out the adapter.

@@ -48,9 +48,7 @@
 			/>
 		{:else if isComponent}
 			{@const Component = icon.iconComponent}
-			<Component
-				width={String(size * 0.8)}
-			/>
+			<Component width={String(size * 0.8)} />
 		{:else}
 			<Icon icon={icon.iconName} width={size * 0.8} />
 		{/if}

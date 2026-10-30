@@ -5,9 +5,9 @@
 	import LightModeIcon from '@iconify-svelte/material-symbols/light-mode';
 	import DarkModeIcon from '@iconify-svelte/material-symbols/dark-mode';
 	import LightModeAutoIcon from '@iconify-svelte/material-symbols/light-mode-auto';
-	import { getLanguageName, locales } from '$lib/i18n';
-	import { storedLocale } from '$lib/i18n/localStore';
-	import { storedTheme } from '$lib/theme';
+	import { getLanguageName, locales } from '#lib/i18n/index.js';
+	import { storedLocale } from '#lib/i18n/localStore.js';
+	import { storedTheme } from '#lib/theme.js';
 
 	const switchTheme = () => {
 		if ($storedTheme === 'wcj-light') {

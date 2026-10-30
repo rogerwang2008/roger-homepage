@@ -1,7 +1,7 @@
 import MailIcon from '@iconify-svelte/material-symbols/mail';
 import LanguageIcon from '@iconify-svelte/material-symbols/language';
 
-import qqMusicAsset from '$lib/assets/images/icons/qq-music.svg';
+import qqMusicAsset from '#lib/assets/images/icons/qq-music.svg';
 
 interface PlatformIconBase {
 	color: string;
@@ -26,11 +26,11 @@ export type { PlatformIconConfig };
 export const platformIcons = {
 	official_website: {
 		iconComponent: LanguageIcon,
-		color: 'var(--color-primary)',
+		color: 'var(--color-primary)'
 	},
 	email: {
 		iconComponent: MailIcon,
-		color: '#0F6CBD',
+		color: '#0F6CBD'
 	},
 	bilibili: {
 		iconName: 'fa7-brands:bilibili',
@@ -42,14 +42,14 @@ export const platformIcons = {
 	},
 	gitee: {
 		iconName: 'fa7-brands:gitee',
-		color: '#C71D23',
+		color: '#C71D23'
 	},
 	netease_music: {
 		iconName: 'ri:netease-cloud-music-line',
-		color: '#E60026',
+		color: '#E60026'
 	},
 	qq_music: {
 		iconAsset: qqMusicAsset,
-		color: '#FFFFFF',
-	},
+		color: '#FFFFFF'
+	}
 } satisfies Record<string, PlatformIconConfig>;

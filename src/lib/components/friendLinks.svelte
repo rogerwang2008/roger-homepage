@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import { friendLinks, type FriendLinkConfig } from './friendLinks';
-	import { hasTranslation } from '$lib/i18n';
+	import { hasTranslation } from '#lib/i18n/index.js';
 
 	let {
 		friendLinkName
@@ -23,7 +23,11 @@
 	href={config.url}
 	target="_blank"
 	rel="noopener noreferrer"
-	style={config.bgImage ? '--bg-image: url(' + config.bgImage + ')' : (config.bgColor ? '--bg-color: ' + config.bgColor : '')}
+	style={config.bgImage
+		? '--bg-image: url(' + config.bgImage + ')'
+		: config.bgColor
+			? '--bg-color: ' + config.bgColor
+			: ''}
 	class:has-bg-image={hasBgImage}
 	class:has-bg-color={hasBgColor}
 >

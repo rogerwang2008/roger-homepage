@@ -1,10 +1,10 @@
 on:
   push:
-    branches: [ "master" ]
+    branches: ['master']
   workflow_dispatch:
 
 env:
-  NODE_VERSION: '24.x'                # set this to the node version to use
+  NODE_VERSION: '24.x' # set this to the node version to use
 
 permissions:
   contents: read
@@ -13,25 +13,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+      - uses: actions/checkout@v6
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
 
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v7
-      with:
-        name: node-app
-        path: ./build
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v7
+        with:
+          name: node-app
+          path: ./build
 
   deploy:
     permissions:
@@ -42,37 +42,37 @@ jobs:
       name: 'Deployment'
 
     steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v8
-      with:
-        name: node-app
-        path: ./build
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v8
+        with:
+          name: node-app
+          path: ./build
 
-    - name: Test via SSH
-      uses: appleboy/ssh-action@v1
-      with:
-        host: ${{ secrets.WCJ_SERVER_HOST }}
-        username: ${{ secrets.WCJ_SERVER_USERNAME }}
-        key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
-        script: |
-          echo "OK SSH Connected!"
+      - name: Test via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.WCJ_SERVER_HOST }}
+          username: ${{ secrets.WCJ_SERVER_USERNAME }}
+          key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
+          script: |
+            echo "OK SSH Connected!"
 
-    - name: Upload build via SCP
-      uses: appleboy/scp-action@v1
-      with:
-        host: ${{ secrets.WCJ_SERVER_HOST }}
-        username: ${{ secrets.WCJ_SERVER_USERNAME }}
-        key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
-        source: "./build/"
-        target: "/var/www/nodejs/deploy_buffer/homepage/"
-        rm: true
+      - name: Upload build via SCP
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.WCJ_SERVER_HOST }}
+          username: ${{ secrets.WCJ_SERVER_USERNAME }}
+          key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
+          source: './build/'
+          target: '/var/www/nodejs/deploy_buffer/homepage/'
+          rm: true
 
-    - name: Deploy via SSH
-      uses: appleboy/ssh-action@v1
-      with:
-        host: ${{ secrets.WCJ_SERVER_HOST }}
-        username: ${{ secrets.WCJ_SERVER_USERNAME }}
-        key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
-        script: |
-          ls /var/www/nodejs/deploy_buffer/homepage/build
-          sudo -u ubuntu /var/www/nodejs/reload.sh homepage
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.WCJ_SERVER_HOST }}
+          username: ${{ secrets.WCJ_SERVER_USERNAME }}
+          key: ${{ secrets.WCJ_SERVER_PRIVATE_KEY }}
+          script: |
+            ls /var/www/nodejs/deploy_buffer/homepage/build
+            sudo -u ubuntu /var/www/nodejs/reload.sh homepage

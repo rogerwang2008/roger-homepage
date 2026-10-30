@@ -1,7 +1,7 @@
-import type { Handle } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit/hooks';
 import { locale } from 'svelte-i18n';
 
-import { getClosestLocale } from '$lib/i18n';
+import { getClosestLocale } from '#lib/i18n/index.js';
 
 // noinspection JSUnusedGlobalSymbols
 export const handle: Handle = async ({ event, resolve }) => {

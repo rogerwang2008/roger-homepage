@@ -1,4 +1,4 @@
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 // @ts-expect-error svelte-cookie 没有类型标注
 import { getCookie, setCookie } from 'svelte-cookie';
 

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n';
 
-	import Platform from '$lib/components/platforms.svelte';
-	import Project from '$lib/components/projects.svelte';
+	import Platform from '#lib/components/platforms.svelte';
+	import Project from '#lib/components/projects.svelte';
 
-	import FriendLink from '$lib/components/friendLinks.svelte';
+	import FriendLink from '#lib/components/friendLinks.svelte';
 
 	const bgImage = '/three-plush-toys.webp';
 	let imageAspectRatio = $state('3693 / 3072');
