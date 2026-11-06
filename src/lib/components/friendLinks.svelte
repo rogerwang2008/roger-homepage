@@ -1,37 +1,40 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import ConfirmLink from './ConfirmLink.svelte';
 	import { friendLinks, type FriendLinkConfig } from './friendLinks';
 	import { hasTranslation } from '#lib/i18n/index.js';
 
 	let {
 		friendLinkName
 	}: {
-		friendLinkName: keyof typeof import('./friendLinks').friendLinks;
+		friendLinkName: keyof typeof friendLinks;
 	} = $props();
 
 	// svelte-ignore state_referenced_locally
 	const config = friendLinks[friendLinkName] as FriendLinkConfig;
 	const hasBgImage = !!config.bgImage;
 	const hasBgColor = !!config.bgColor;
-</script>
 
-<!-- eslint-disable svelte/no-navigation-without-resolve -->
-<a
-	class="friend-link relative inline-flex gap-2 px-2 py-1 no-underline text-inherit overflow-hidden"
-	class:items-start={hasTranslation('friendly_links.' + friendLinkName + '.description')}
-	class:items-center={!hasTranslation('friendly_links.' + friendLinkName + '.description')}
-	href={config.url}
-	target="_blank"
-	rel="noopener noreferrer"
-	style={config.bgImage
+	// svelte-ignore state_referenced_locally
+	const linkClass = [
+		'friend-link relative inline-flex gap-2 px-2 py-1 no-underline text-inherit overflow-hidden',
+		hasTranslation('friendly_links.' + friendLinkName + '.description')
+			? 'items-start'
+			: 'items-center',
+		hasBgImage ? 'has-bg-image' : '',
+		hasBgColor ? 'has-bg-color' : ''
+	]
+		.filter(Boolean)
+		.join(' ');
+
+	const linkStyle = config.bgImage
 		? '--bg-image: url(' + config.bgImage + ')'
 		: config.bgColor
 			? '--bg-color: ' + config.bgColor
-			: ''}
-	class:has-bg-image={hasBgImage}
-	class:has-bg-color={hasBgColor}
->
-	<!-- eslint-enable svelte/no-navigation-without-resolve -->
+			: '';
+</script>
+
+{#snippet linkInner()}
 	{#if config.icon}
 		<img
 			src={config.icon}
@@ -50,21 +53,43 @@
 			</span>
 		{/if}
 	</span>
-</a>
+{/snippet}
+
+{#if config.confirm}
+	<!-- eslint-disable svelte/no-navigation-without-resolve -->
+	<ConfirmLink href={config.url} class={linkClass} style={linkStyle} dialog={config.confirm}>
+		{@render linkInner()}
+	</ConfirmLink>
+	<!-- eslint-enable svelte/no-navigation-without-resolve -->
+{:else}
+	<!-- eslint-disable svelte/no-navigation-without-resolve -->
+	<a
+		href={config.url}
+		class={linkClass}
+		style={linkStyle}
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		{@render linkInner()}
+	</a>
+	<!-- eslint-enable svelte/no-navigation-without-resolve -->
+{/if}
 
 <style>
-	.friend-link.has-bg-image {
+	/*noinspection CssUnusedSymbol*/
+	:global(.friend-link.has-bg-image) {
 		background-image: var(--bg-image);
 		background-size: cover;
 		background-position: center;
 	}
 
-	.friend-link.has-bg-color {
+	/*noinspection CssUnusedSymbol*/
+	:global(.friend-link.has-bg-color) {
 		background-color: var(--bg-color);
 	}
 
-	.friend-link::before,
-	.friend-link::before {
+	/*noinspection CssUnusedSymbol*/
+	:global(.friend-link::before) {
 		content: '';
 		position: absolute;
 		inset: 0;
@@ -73,8 +98,9 @@
 		z-index: 0;
 	}
 
-	.friend-link :global(img),
-	.friend-link :global(svg) {
+	/*noinspection CssUnusedSymbol*/
+	:global(.friend-link :global(img)),
+	:global(.friend-link :global(svg)) {
 		width: 1.2rem;
 		height: 1.2rem;
 		flex-shrink: 0;

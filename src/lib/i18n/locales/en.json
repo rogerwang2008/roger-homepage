@@ -1,4 +1,16 @@
 {
+	"confirm": {
+		"actions": {
+			"cancel": "Cancel",
+			"proceed": "Still visit"
+		},
+		"dialogs": {
+			"transgender_warning": {
+				"message": "This website may contain transgender-related remarks. Please browse with awareness.",
+				"title": "Content notice"
+			}
+		}
+	},
 	"friendly_links": {
 		"annot": {
 			"description": "The leader of <i>Eternal RDFZ</i>",
@@ -24,7 +36,7 @@
 		"gitee": "Gitee",
 		"github": "GitHub",
 		"netease_music": "NetEase Cloud Music",
-		"official_website": "Official wensite",
+		"official_website": "Official website",
 		"qq_music": "QQ Music",
 		"youtube": "YouTube"
 	},

@@ -1,4 +1,16 @@
 {
+	"confirm": {
+		"actions": {
+			"cancel": "取消",
+			"proceed": "仍然訪問"
+		},
+		"dialogs": {
+			"transgender_warning": {
+				"message": "該網站可能包含跨性別相關言論，請注意辨別。",
+				"title": "內容提示"
+			}
+		}
+	},
 	"friendly_links": {
 		"annot": {
 			"description": "《幻立紅白》項目領導者，A Brony (?)",

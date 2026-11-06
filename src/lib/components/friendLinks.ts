@@ -9,6 +9,11 @@ interface FriendLinkConfig {
 	bgColor?: string;
 	url: string;
 	description?: string;
+	/**
+	 * Id of the confirmation dialog to show before leaving, keyed under
+	 * `confirm.dialogs` in the locale files. Omit for a plain link.
+	 */
+	confirm?: string;
 }
 
 export type { FriendLinkConfig };
@@ -22,7 +27,8 @@ export const friendLinks: Record<string, FriendLinkConfig> = {
 	kip: {
 		icon: KipMaIcon,
 		bgImage: '/friend-links/kip-website-bg.webp',
-		url: 'https://kip.gay'
+		url: 'https://kip.gay',
+		confirm: 'transgender_warning'
 	},
 	archaeus13: {
 		icon: null,
