@@ -12,20 +12,14 @@
 
 	// svelte-ignore state_referenced_locally
 	const config = friendLinks[friendLinkName] as FriendLinkConfig;
-	const hasBgImage = !!config.bgImage;
-	const hasBgColor = !!config.bgColor;
 
 	// svelte-ignore state_referenced_locally
 	const linkClass = [
-		'friend-link relative inline-flex gap-2 px-2 py-1 no-underline text-inherit overflow-hidden',
+		'relative inline-flex gap-2 px-2 py-1 no-underline text-inherit overflow-hidden',
 		hasTranslation('friendly_links.' + friendLinkName + '.description')
 			? 'items-start'
-			: 'items-center',
-		hasBgImage ? 'has-bg-image' : '',
-		hasBgColor ? 'has-bg-color' : ''
-	]
-		.filter(Boolean)
-		.join(' ');
+			: 'items-center'
+	].join(' ');
 
 	const linkStyle = config.bgImage
 		? '--bg-image: url(' + config.bgImage + ')'
@@ -35,6 +29,7 @@
 </script>
 
 {#snippet linkInner()}
+	<span class="bg"></span>
 	{#if config.icon}
 		<img
 			src={config.icon}
@@ -76,31 +71,25 @@
 {/if}
 
 <style>
-	/*noinspection CssUnusedSymbol*/
-	:global(.friend-link.has-bg-image) {
+	.bg {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
 		background-image: var(--bg-image);
 		background-size: cover;
 		background-position: center;
-	}
-
-	/*noinspection CssUnusedSymbol*/
-	:global(.friend-link.has-bg-color) {
 		background-color: var(--bg-color);
 	}
 
-	/*noinspection CssUnusedSymbol*/
-	:global(.friend-link::before) {
+	.bg::after {
 		content: '';
 		position: absolute;
 		inset: 0;
 		background-color: color-mix(in oklch, var(--color-base-200) 75%, transparent);
-		pointer-events: none;
-		z-index: 0;
 	}
 
-	/*noinspection CssUnusedSymbol*/
-	:global(.friend-link :global(img)),
-	:global(.friend-link :global(svg)) {
+	img {
 		width: 1.2rem;
 		height: 1.2rem;
 		flex-shrink: 0;
